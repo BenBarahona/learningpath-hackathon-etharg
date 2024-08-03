@@ -1,20 +1,10 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
-
-// import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
-
-// contract PathToken is ERC20 {
-//     constructor(uint256 initialSupply) ERC20("PathToken", "PATH") {
-//         _mint(msg.sender, initialSupply);
-//     }
-// }
-
-
+pragma solidity ^0.8.24;
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract LearningToken is ERC20, Ownable {
-    constructor(uint256 initialSupply) ERC20("PathToken", "PTH") {
+contract PathToken is ERC20, Ownable(msg.sender) {
+    constructor(uint256 initialSupply) ERC20("PathToken", "PATH") {
         _mint(msg.sender, initialSupply);
     }
 

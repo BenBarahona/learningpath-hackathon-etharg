@@ -4,7 +4,7 @@ pragma solidity ^0.8.0;
 import "./PathToken.sol";
 
 contract RewardConfig {
-    LearningToken public token;
+    PathToken public token;
 
     struct RewardPool {
         uint256 totalTokens;
@@ -14,7 +14,7 @@ contract RewardConfig {
     RewardPool public rewardPool;
 
     constructor(address tokenAddress) {
-        token = LearningToken(tokenAddress);
+        token = PathToken(tokenAddress);
     }
 
     // Configura el pool de recompensas con un total de tokens
