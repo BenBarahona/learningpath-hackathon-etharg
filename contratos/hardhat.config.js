@@ -2,7 +2,6 @@ require("@nomiclabs/hardhat-waffle");
 require('dotenv').config();
 
 console.log("URL", process.env.SCROLL_SEPOLIA_RPC_URL)
-console.log("KEY", process.env.PRIVATE_KEY)
 module.exports = {
   solidity: "0.8.24",
   networks: {
