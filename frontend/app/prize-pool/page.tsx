@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useMemo, useEffect } from "react";
-import { useWriteContract, useWaitForTransactionReceipt, useChainId, useTransaction, useReadContract } from "wagmi";
+import { useWriteContract, useWaitForTransactionReceipt, useChainId, useReadContract } from "wagmi";
 import { LayoutMain } from '../main-layout'
 import { Step1 } from "./step1";
 import { Step2 } from './step2'

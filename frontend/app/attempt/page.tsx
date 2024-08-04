@@ -17,6 +17,7 @@ const AttemptPage = () => {
     const query = useQuery({ queryKey: ['questions_challenge', searchParams.get('challenge')], queryFn: () => getQuestionsChallenges(searchParams.get('challenge') as string), select(data) {
       return data as any
     }, })
+    
 
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [selectedOption, setSelectedOption] = useState('');

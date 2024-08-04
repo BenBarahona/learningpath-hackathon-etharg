@@ -39,19 +39,19 @@ export const LayoutMain = ({ children}: any) => {
           minW="250px"
           alignItems="flex-start"
         >
-          <Link href="#" style={{ textDecoration: "none" }} _hover={{ textDecoration: "none" }}>
+          <Link href="/action" style={{ textDecoration: "none" }} _hover={{ textDecoration: "none" }}>
             <HStack spacing={4}>
               <Icon as={HiHome} />
               <Text>Home</Text>
             </HStack>
           </Link>
-          <Link href="/new-challenge" style={{ textDecoration: "none" }} _hover={{ textDecoration: "none" }}>
+          <Link href="/challenges" style={{ textDecoration: "none" }} _hover={{ textDecoration: "none" }}>
             <HStack spacing={4}>
               <Icon as={FaTrophy} />
               <Text>Challenges</Text>
             </HStack>
           </Link>
-          <Link href="#" style={{ textDecoration: "none" }} _hover={{ textDecoration: "none" }}>
+          <Link href="/admin-home" style={{ textDecoration: "none" }} _hover={{ textDecoration: "none" }}>
             <HStack spacing={4}>
               <Icon as={FaGift} />
               <Text>Prizes</Text>

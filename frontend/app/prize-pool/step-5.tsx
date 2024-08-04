@@ -13,7 +13,7 @@ export const Step5 = () => {
           Your new prize was successfully launched
         </Text>
         <Center>
-            <Button colorScheme="orange" size="lg" onClick={() => router.push('/prizes')}>Go To Prizes</Button>
+            <Button colorScheme="orange" size="lg" onClick={() => router.push('/admin-home')}>Go To Prizes</Button>
         </Center>
       </div>
     </Center>
