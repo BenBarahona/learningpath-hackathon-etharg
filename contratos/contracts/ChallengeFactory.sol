@@ -27,9 +27,9 @@ contract ChallengeFactory {
         pathToken = PathToken(_pathToken);
     }
 
-    function setPathToken(address _pathToken) {
+    function setPathToken(address _pathToken) public {
         require(msg.sender == owner, "NOT OWNER");
-        pathToken = _pathToken;
+        pathToken = PathToken(_pathToken);
     }
 
     function CreateMultipleChoiceChallenge(string memory firebaseId, uint256 tokenAmountRequired, uint256 totalReward, uint256 totalQuestions) public {

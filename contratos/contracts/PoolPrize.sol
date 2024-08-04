@@ -35,9 +35,9 @@ contract PoolPrize {
         _;
     }
 
-    function setPathToken(address _pathToken) {
+    function setPathToken(address _pathToken) public {
         require(msg.sender == admin, "NOT OWNER");
-        pathToken = _pathToken;
+        pathToken = PathToken(_pathToken);
     }
 
     receive() external payable {
