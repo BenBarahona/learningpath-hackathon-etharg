@@ -1,23 +1,25 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.24;
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
-import "@openzeppelin/contracts/access/Roles.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract PathToken is ERC20, Ownable(msg.sender) {
-    using Roles for Roles.Role;
 
-    Roles.Role private _owners;
-
+    mapping(address => address) private owners;
     mapping (address => uint256) private historicalTokens;
 
-    constructor(address[] memory owners) ERC20("PathToken", "PATH") {
-        for (uint256 i = 0; i < owners.length; ++i) {
-            _owners.add(owners[i]);
-        }
+    constructor() ERC20("PathToken", "PATH") {
+        // for (uint256 i = 0; i < _owners.length; ++i) {
+        //     owners[_owners[i]] = _owners[i];
+        // }
+    }
+
+    function addOwner(address _owner) public {
+        owners[_owner] = _owner;
     }
 
     function mint(address to, uint256 amount) public {
-        require(_owner.has(msg.sender), "DOES_NOT_HAVE_OWNER_ROLE");
+        require(owners[msg.sender] == msg.sender, "DOES_NOT_HAVE_OWNER_ROLE");
         _mint(to, amount);
         historicalTokens[to] += amount;
     }
