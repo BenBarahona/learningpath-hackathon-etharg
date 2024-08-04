@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "encoding": "^0.1.13",
-    "pino-pretty": "^11.2.2"
-  }
-}

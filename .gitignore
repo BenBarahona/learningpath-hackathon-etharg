@@ -3,3 +3,4 @@ frontend/.env.local
 frontend/.next/
 frontend/.swc/
 frontend/.*.env
+/node_modules
