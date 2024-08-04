@@ -45,7 +45,7 @@ const AdminHome = () => {
               <Text>Home</Text>
             </HStack>
           </Link>
-          <Link href="/new-challenge" style={{ textDecoration: "none" }} _hover={{ textDecoration: "none" }}>
+          <Link style={{ textDecoration: "none" }} _hover={{ textDecoration: "none" }}>
             <HStack spacing={4}>
               <Icon as={FaTrophy} />
               <Text>Challenges</Text>
@@ -84,7 +84,7 @@ const AdminHome = () => {
             <Box border="1px solid" borderColor="gray.200" borderRadius="md" p={4} flex="1">
               <HStack justifyContent="space-between" mb={4}>
                 <Text fontSize="lg" fontWeight="bold">Prizes</Text>
-                <Button colorScheme="orange" size="sm">+ Create Prize</Button>
+                <Button colorScheme="orange" size="sm" onClick={()=> router.push('/prize-pool')}>+ Create Prize</Button>
               </HStack>
               <HStack justifyContent="space-between">
                 <Text fontSize="3xl">0</Text>

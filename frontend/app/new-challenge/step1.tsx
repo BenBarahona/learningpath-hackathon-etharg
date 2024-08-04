@@ -42,8 +42,8 @@ export const Step1 = ({selectedChallenge,  setSelectedChallenge, setStep}: any) 
         description="Answer real-time questions validated by the API3 Oracle. Compete with others and see if your answer is the most accurate."
         players="Multiplayer"
         type="Live"
-        isSelected={selectedChallenge === "Oracle Mode"}
-        onClick={() => setSelectedChallenge("Oracle Mode")}
+        isSelected={selectedChallenge === challengeType.OracleMode}
+        onClick={() => setSelectedChallenge(challengeType.OracleMode)}
       />
       <ChallengeCard
         imageSrc="https://path-to-real-time-challenge-image.png"
@@ -51,8 +51,8 @@ export const Step1 = ({selectedChallenge,  setSelectedChallenge, setStep}: any) 
         description="Bet on your answers in a timed challenge. Pool prizes are distributed among players with the correct answers."
         players="Multiplayer"
         type="Live"
-        isSelected={selectedChallenge === "Real Time Challenge"}
-        onClick={() => setSelectedChallenge("Real Time Challenge")}
+        isSelected={selectedChallenge === challengeType.RealTimeChallenge}
+        onClick={() => setSelectedChallenge(challengeType.RealTimeChallenge)}
       />
     </Flex>
     <Button colorScheme="orange" onClick={() => setStep(1)} isDisabled={!selectedChallenge}>Continue</Button>

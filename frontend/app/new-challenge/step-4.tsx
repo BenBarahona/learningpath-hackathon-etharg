@@ -5,7 +5,8 @@ export const Step4 = ({
     questionLength,
     reward,
     setReward,
-    submitChallenge
+    submitChallenge,
+    isWriting
 }: any) => {
 
   return (
@@ -25,7 +26,7 @@ export const Step4 = ({
         <Text>Reward per Question: {reward/questionLength} $PATH</Text>
       </Box>
       <Flex justifyContent="flex-end" marginTop="6">
-        <Button colorScheme="orange" disabled onClick={submitChallenge}>
+        <Button colorScheme="orange" isLoading={isWriting} disabled onClick={submitChallenge}>
           Continue
         </Button>
       </Flex>

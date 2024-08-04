@@ -1,0 +1,1 @@
+export const challengeAddress = '0x52417193759743DC507D42c8a02246E4D3a86Fd6'

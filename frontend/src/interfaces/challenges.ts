@@ -20,3 +20,13 @@ export interface IQuestion {
     readonly content: string
     readonly options: IOption[]
 }
+
+export interface IPrize {
+    readonly title: string
+    readonly description: string
+    readonly pool_type: string
+    readonly user_reward: number
+    readonly required_token_amount: number
+    readonly total_prize: number
+    readonly claimed_address: string[]
+}
