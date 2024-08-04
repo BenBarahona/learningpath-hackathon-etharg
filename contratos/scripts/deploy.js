@@ -6,19 +6,19 @@ async function main() {
     console.log("Deploying contracts with the account:", deployer.address);
 
     // //Deploying PATH token, with factory as a owner
-    // const PathToken = await ethers.getContractFactory("PathToken");
-    // const pathToken = await PathToken.deploy();
-    // console.log("PathToken:", pathToken.address);
+    const PathToken = await ethers.getContractFactory("PathToken");
+    const pathToken = await PathToken.deploy();
+    console.log("PathToken:", pathToken.address);
 
     // //Deploy challenge factory
     const ChallengeFactory = await ethers.getContractFactory("ChallengeFactory");
-    const challengeFactory = await ChallengeFactory.deploy("0x7019Ddf4A14Caaf33babef107908F80E3EBd123F");
+    const challengeFactory = await ChallengeFactory.deploy(pathToken.address);
     console.log("ChallengeFactory:", challengeFactory.address)
   
     //Deploy PoolPrizeFactory
-    // const PoolPrizeFactory = await ethers.getContractFactory("PoolPrizeFactory");
-    // const poolPrizeFactory = await PoolPrizeFactory.deploy();
-    // console.log("PoolPrizeFactory:", poolPrizeFactory.address);
+    const PoolPrizeFactory = await ethers.getContractFactory("PoolPrizeFactory");
+    const poolPrizeFactory = await PoolPrizeFactory.deploy();
+    console.log("PoolPrizeFactory:", poolPrizeFactory.address);
 
     // // Deploy chainlink 
     // const PriceConsumerV3 = await ethers.getContractFactory("PriceConsumerV3");
