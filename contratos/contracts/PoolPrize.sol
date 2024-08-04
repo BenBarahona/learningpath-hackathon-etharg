@@ -27,7 +27,7 @@ contract PoolPrize {
         totalClaimableUsers = msg.value / prizePerUser;
         tokenToBurn = _tokenToBurn;
 
-        emit PoolCreated(keccak256(bytes(_poolFirebaseId)), msg.value);
+        emit PoolCreated( address(this), keccak256(bytes(_poolFirebaseId)), msg.value);
     }
 
     modifier onlyAdmin() {
