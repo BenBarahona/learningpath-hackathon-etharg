@@ -6,14 +6,19 @@ async function main() {
     console.log("Deploying contracts with the account:", deployer.address);
 
     // //Deploying PATH token, with factory as a owner
-    // const PathToken = await ethers.getContractFactory("PathToken");
-    // const pathToken = await PathToken.deploy();
-    // console.log("PathToken:", pathToken.address);
+    const PathToken = await ethers.getContractFactory("PathToken");
+    const pathToken = await PathToken.deploy();
+    console.log("PathToken:", pathToken.address);
 
     // //Deploy challenge factory
     // const ChallengeFactory = await ethers.getContractFactory("ChallengeFactory");
     // const challengeFactory = await ChallengeFactory.deploy(pathToken.address);
     // console.log("ChallengeFactory:", challengeFactory.address)
+  
+    //Deploy PoolPrizeFactory
+    const PoolPrizeFactory = await ethers.getContractFactory("PoolPrizeFactory");
+    const poolPrizeFactory = await PoolPrizeFactory.deploy();
+    console.log("PoolPrizeFactory:", poolPrizeFactory.address);
 
     // // Deploy chainlink 
     // const PriceConsumerV3 = await ethers.getContractFactory("PriceConsumerV3");
@@ -21,11 +26,13 @@ async function main() {
     // const priceConsumerV3 = await PriceConsumerV3.deploy(priceFeedAddress);
     // await priceConsumerV3.deployed();
     // console.log("PriceConsumerV3:", priceConsumerV3.address);
-  
-    // Deploy PoolPrizeFactory
-    const PoolPrizeFactory = await ethers.getContractFactory("PoolPrizeFactory");
-    const poolPrizeFactory = await PoolPrizeFactory.deploy();
-    console.log("PoolPrizeFactory:", poolPrizeFactory.address);
+
+    // const API3PriceFeed = await ethers.getContractFactory("API3PriceFeed");
+    // const api3PriceFeed = await API3PriceFeed.attach(contractAddress);
+
+    // const [price, timestamp] = await api3PriceFeed.readDataFeed();
+    // console.log("Price:", price.toString());
+    // console.log("Timestamp:", timestamp.toString());
 
     
     // const ETHPriceFeed = await ethers.getContractFactory("ETHPriceFeed");
@@ -42,39 +49,4 @@ async function main() {
 }
 
 main();
-
-// async function main() {
-//     const [deployer] = await ethers.getSigners();
-  
-//     console.log("Deploying contracts with the account:", deployer.address);
-  
-//     const initialSupply = ethers.utils.parseUnits("1000000", 18); // 1 millón de tokennnnn???? jaja los que sean
-
-//     const PathToken = await ethers.getContractFactory("PathToken");
-//     const pathToken = await PathToken.deploy(initialSupply);
-//     console.log("PathToken deployed to:", pathToken.address);
-
-//     // const LearningToken = await ethers.getContractFactory("LearningToken");
-//     // const learningToken = await LearningToken.deploy(initialSupply);
-//     // console.log("LearningToken deployed to:", learningToken.address);
-  
-//     // const ChallengeConfig = await ethers.getContractFactory("ChallengeConfig");
-//     // const challengeConfig = await ChallengeConfig.deploy();
-//     // console.log("ChallengeConfig deployed to:", challengeConfig.address);
-  
-//     // const RewardConfig = await ethers.getContractFactory("RewardConfig");
-//     // const rewardConfig = await RewardConfig.deploy(learningToken.address);
-//     // console.log("RewardConfig deployed to:", rewardConfig.address);
-  
-//     // const GameManager = await ethers.getContractFactory("GameManager");
-//     // const gameManager = await GameManager.deploy(challengeConfig.address, rewardConfig.address);
-//     // console.log("GameManager deployed to:", gameManager.address);
-//   }
-  
-//   main()
-//     .then(() => process.exit(0))
-//     .catch(error => {
-//       console.error(error);
-//       process.exit(1);
-//     });
   

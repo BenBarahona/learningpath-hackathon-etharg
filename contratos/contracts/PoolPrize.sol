@@ -16,7 +16,7 @@ contract PoolPrize {
     uint256 totalClaimableUsers;
     uint256 tokenToBurn;
 
-    event PoolCreated (address poolAddress, bytes32 indexed _poolId, uint256 indexed _totalValue);
+    event Received(address, uint);
 
     constructor(address _pathToken, string memory _poolFirebaseId, uint256 _tokenRequired, uint256 _prizePerUser, uint256 _tokenToBurn) payable {
         admin = msg.sender;
@@ -24,10 +24,10 @@ contract PoolPrize {
         pathToken = PathToken(_pathToken);
         tokenAmountRequired = _tokenRequired;
         prizePerUser = _prizePerUser;
-        totalClaimableUsers = msg.value / prizePerUser;
+        //totalClaimableUsers = msg.value / prizePerUser;
         tokenToBurn = _tokenToBurn;
 
-        emit PoolCreated( address(this), keccak256(bytes(_poolFirebaseId)), msg.value);
+        //emit PoolCreated( address(this), keccak256(bytes(_poolFirebaseId)), msg.value);
     }
 
     modifier onlyAdmin() {
@@ -35,11 +35,10 @@ contract PoolPrize {
         _;
     }
 
-    // receive() external payable {
-    //     totalClaimable = msg.value;
-    //     prizeAmount = msg.value;
-    //     emit Received(msg.sender, msg.value);
-    // }
+    receive() external payable {
+        totalClaimableUsers = msg.value / prizePerUser;
+        emit Received(msg.sender, msg.value);
+    }
 
     function claimPrize(address user) public
     {

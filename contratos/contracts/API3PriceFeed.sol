@@ -2,9 +2,9 @@
 pragma solidity ^0.8.19;
 
 import "@api3/contracts/api3-server-v1/proxies/interfaces/IProxy.sol";
-import "@openzeppelin/contracts@4.9.3/access/Ownable.sol";// 4.9.3 solo para remix
+import "@openzeppelin/contracts/access/Ownable.sol";// 4.9.3 solo para remix
 
-contract API3PriceFeed is Ownable {
+contract API3PriceFeed is Ownable(msg.sender) {
 
     address public proxyAddress;
 
