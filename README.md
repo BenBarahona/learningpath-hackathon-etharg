@@ -1,1 +1,107 @@
-# learningpath-hackathon-etharg
+# Learning Path : Eth Argentina 2024
+
+Learning Path is a gamified learning platform designed to address the challenge of identifying and rewarding builders for their contributions in blockchain protocols. It leverages blockchain technology to provide transparent, immutable records of user achievements and quest metrics, ensuring open and verifiable progress tracking. 
+
+The platform incentivizes users to learn about blockchain technologies through interactive challenges, including multiple-choice quizzes, real-time oracle-validated responses, and timed competitions.
+
+Administrators can configure various challenge types and reward pools, allowing protocols to identify talented builders while fostering an ecosystem where learning, contribution, and rewards are interconnected. By offering tangible incentives and community recognition, Learning Path delivers engaging education to users, helps protocols discover and nurture talent, and promotes their technology. 
+
+This innovative approach contributes to expanding knowledge and aligning incentives within the blockchain ecosystem, all while maintaining a transparent and decentralized record of user accomplishments and quest performance.
+
+- Devrels authenticate using [Zupass](https://github.com/proofcarryingdata/zupass) and it's ZK Proof Verifier
+- ERC20 Token named PATH as a contribution metric for contributors
+- Challenge system to reward users with ETH for burning PATH earned in challenges
+- Different types of challenges that award users with ETH in different ways
+
+## How it works
+Users will first connect their existing wallets to the platform, where afterwards there will be options available to enter as a contributor, and play challenges in exchange for rewards in PATH, or Devrels in charge of the setup will authenticate with a verified Zupass Proof.
+
+DevRels will be assigned a Zupass Ticket, which they will require to authenticate with to enter.  Only those with a valid ticket will provide the proof that will be verified via the frontend using Zupass's authenticate package [ZuAuth](https://www.npmjs.com/package/@pcd/zuauth).  This package verifies using ZK that the proof provided is actually from Zupass and has a valid Ticket ID, which was issued to the DevRel / Admin.
+
+Once authenticated, DevRels/Admins will be able to create challenges so users can collect PATH.  Along with these challenges, they will create and fund Pools that will serve as bounties for users to burn earned PATH.  These challenges and bounties are created on a [Firebase](https://firebase.google.com/?gad_source=1&gclid=Cj0KCQjwzby1BhCQARIsAJ_0t5O__fYNyCoSykZQTNw-Df3atjA8nZaehHc_DvAH7GbSS-lquPHAy5caAva9EALw_wcB&gclsrc=aw.ds) database and on chain using Smart Contracts written in Solidity and deployed on the desired network, in this case Scroll Sepolia test network.
+
+Regular users will be able to play these challenges that will consist on different types of modules, such as on chain Multiple Choice trivia, a voting scheme using MACI, and more.
+
+## Implementation Details
+
+For Zupass Tickets, a Pipeline was created on [Zupass' PodBox](https://podbox.dev/#/pipelines/) for ticket issuance to DevRels / Admins that will create platform content.
+
+The following smart contracts were created:
+- ChallengeFactory: Factory contract that creates new challenges, based on different configuration types set by the admin.
+- PathToken: ERC20 Token that will serve as platform currency.  PathToken also keeps track of the historic amount of PATH a user obtained, even after burning of PATH.
+- PoolPrizeFactory: Factory contract that creates different types of pool prizes.
+- PoolPrize: A Pool funded by the deployer, which can have different types of reward logics.  At the moment, only a Pool Prize (set amount per claim) is available, but the idea is to include different types of Pools such as a Quadratic or Pre-Determined types.
+- API3PriceFeed: Oracle using API3 to consult current ETH value in USD
+- API3PriceFeedExtended: Extension of Price Feed above, serving as a conversion contract for other currencies, such as Argentinian Pesos.
+- PriceConsumerV3 (?)
+
+TODO: Poner info de Chainlink
+TODO: Poner info de API3
+
+## Verified Smart Contracts
+[ChallengeFactory]()
+[PathToken]()
+[PoolPrizeFactory]()
+[PoolPrize]()
+
+## Requirements
+
+Before you begin, you need to install the following tools:
+
+- [Node (>= v18.17)](https://nodejs.org/en/download/)
+- Yarn ([v1](https://classic.yarnpkg.com/en/docs/install/) or [v2+](https://yarnpkg.com/getting-started/install))
+- [Git](https://git-scm.com/downloads)
+
+## Quickstart
+
+To get started, follow the steps below:
+
+[Learning Path Github](https://github.com/BenBarahona/learningpath-hackathon-etharg/)
+
+### Frontend
+1. Navigate to frontend and install dependencies
+
+```
+cd frontend/
+npm install
+```
+
+2. Start NextJS app:
+
+```
+npm run dev
+```
+
+App will run on localhost:3000
+
+### Smart Contracts
+1. Navigate to contracts folder and install dependencies
+
+```
+cd contracts/
+```
+
+2. Install Dependencies
+
+```
+npm install
+```
+
+3. Copy the .env.example file and name it .env   Make sure to fill in the values for each var on the created env file
+
+```
+cp .env.example .env
+```
+
+4. To deploy smart contracts, run
+
+```
+npm run deploy:network
+```
+
+Network sent must be configured in hardhat.config.js file on contracts folder
+
+
+## Video Demo
+
+[Watch the video]()
