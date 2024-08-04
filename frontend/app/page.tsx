@@ -57,7 +57,7 @@ export default function Home() {
       <Stack spacing={4}>
         { isConnected
            ?<DisconnectOption />
-           : <Button variant="outline" size="lg" onClick={onOpen}>
+           : <Button variant="outline" size="lg" onClick={() => onOpen()}>
            conectar wallet
          </Button>
         }
