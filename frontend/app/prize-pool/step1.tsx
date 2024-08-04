@@ -24,21 +24,21 @@ export const Step1 = ({selectedChallenge,  setSelectedPrize, setStep}: any) => {
     <Heading size="md" mb={4}>1. Select Prize Type</Heading>
     <Flex justifyContent="space-between" gap={4} mb={8}>
       <PrizeCard
-        imageSrc="https://path-to-multiple-choice-image.png"
+        imageSrc="/images/prize_pool.png"
         title="Pool Prize"
         description="Set a pool prize and define the amount each player can claim. Players can make a single claim, with their prize deducted from the pool."
         isSelected={selectedChallenge === prizeType.PoolPrize}
         onClick={() => setSelectedPrize(prizeType.PoolPrize)}
       />
       <PrizeCard
-        imageSrc="https://path-to-oracle-mode-image.png"
+        imageSrc="/images/quadratic.png"
         title="Quadratic Pool Prize"
         description="Set a pool prize and the number of players who can claim it. The prize is distributed exponentially among the players."
         isSelected={selectedChallenge === prizeType.QuadraticPoolPrize}
         onClick={() => setSelectedPrize(prizeType.QuadraticPoolPrize)}
       />
       <PrizeCard
-        imageSrc="https://path-to-real-time-challenge-image.png"
+        imageSrc="/images/pre-defined.png"
         title="Pre-Defined Prize"
         description="Define a set number of prizes and their amounts. Players receive corresponding rewards based on their performance."
         isSelected={selectedChallenge === prizeType.PreDefinedPrize}
