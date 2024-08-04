@@ -5,23 +5,27 @@ async function main() {
     const [deployer] = await ethers.getSigners();
     console.log("Deploying contracts with the account:", deployer.address);
 
-    //Deploying PATH token, with factory as a owner
-    const PathToken = await ethers.getContractFactory("PathToken");
-    const pathToken = await PathToken.deploy();
-    console.log("PathToken deployed to:", pathToken.address);
+    // //Deploying PATH token, with factory as a owner
+    // const PathToken = await ethers.getContractFactory("PathToken");
+    // const pathToken = await PathToken.deploy();
+    // console.log("PathToken:", pathToken.address);
 
-    //Deploy challenge factory
-    const ChallengeFactory = await ethers.getContractFactory("ChallengeFactory");
-    const challengeFactory = await ChallengeFactory.deploy(pathToken.address);
-    console.log("ChallengeFactory deployed to:", challengeFactory.address)
+    // //Deploy challenge factory
+    // const ChallengeFactory = await ethers.getContractFactory("ChallengeFactory");
+    // const challengeFactory = await ChallengeFactory.deploy(pathToken.address);
+    // console.log("ChallengeFactory:", challengeFactory.address)
 
-    // Deploy chainlink 
-    const PriceConsumerV3 = await ethers.getContractFactory("PriceConsumerV3");
-    const priceFeedAddress = ""; // Dire del oraculo de Chainlink a buscar hardcodeada
-    const priceConsumerV3 = await PriceConsumerV3.deploy(priceFeedAddress);
-    await priceConsumerV3.deployed();
-    console.log("PriceConsumerV3 deployed to:", priceConsumerV3.address);
+    // // Deploy chainlink 
+    // const PriceConsumerV3 = await ethers.getContractFactory("PriceConsumerV3");
+    // const priceFeedAddress = ""; // Dire del oraculo de Chainlink a buscar hardcodeada
+    // const priceConsumerV3 = await PriceConsumerV3.deploy(priceFeedAddress);
+    // await priceConsumerV3.deployed();
+    // console.log("PriceConsumerV3:", priceConsumerV3.address);
   
+    // Deploy PoolPrizeFactory
+    const PoolPrizeFactory = await ethers.getContractFactory("PoolPrizeFactory");
+    const poolPrizeFactory = await PoolPrizeFactory.deploy();
+    console.log("PoolPrizeFactory:", poolPrizeFactory.address);
 
     
     // const ETHPriceFeed = await ethers.getContractFactory("ETHPriceFeed");

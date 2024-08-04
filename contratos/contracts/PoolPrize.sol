@@ -16,7 +16,7 @@ contract PoolPrize {
     uint256 totalClaimableUsers;
     uint256 tokenToBurn;
 
-    event PoolCreated (bytes32 indexed _poolId, uint256 indexed _totalValue);
+    event PoolCreated (address poolAddress, bytes32 indexed _poolId, uint256 indexed _totalValue);
 
     constructor(address _pathToken, string memory _poolFirebaseId, uint256 _tokenRequired, uint256 _prizePerUser, uint256 _tokenToBurn) payable {
         admin = msg.sender;
