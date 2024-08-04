@@ -8,7 +8,8 @@ contract API3PriceFeed is Ownable(msg.sender) {
 
     address public proxyAddress;
 
-    constructor() {}
+    constructor() {
+    }
 
     function setProxyAddress(address _proxyAddress) onlyOwner public {
         proxyAddress = _proxyAddress;
@@ -16,9 +17,10 @@ contract API3PriceFeed is Ownable(msg.sender) {
 
     function readDataFeed() public view returns (uint256, uint256) {
         (int224 value, uint256 timestamp) = IProxy(proxyAddress).read();
-        // convertir precio a uin256
+
         uint256 price = uint224(value);
         return (price, timestamp);
+        //return (0,0);
     }
 
 }

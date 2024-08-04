@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { useWriteContract, useWaitForTransactionReceipt, useAccount } from "wagmi";
 import { Box, Text, Button } from '@chakra-ui/react';
@@ -95,9 +95,15 @@ const AttemptPage = () => {
         : <Button onClick={handleNextQuestion} isLoading={isWriting} colorScheme="teal" mt="4">
         Continuar
       </Button>
-      }
-    </Box>
+        }
+      </Box>
     );
   };
 
-  export default AttemptPage
+  const WrappedAttempt = () => {
+    return <Suspense>
+      <AttemptPage />
+    </Suspense>
+  }
+
+  export default WrappedAttempt
