@@ -15,6 +15,14 @@ async function main() {
     const challengeFactory = await ChallengeFactory.deploy(pathToken.address);
     console.log("ChallengeFactory deployed to:", challengeFactory.address)
 
+    // Deploy chainlink 
+    const PriceConsumerV3 = await ethers.getContractFactory("PriceConsumerV3");
+    const priceFeedAddress = ""; // Dire del oraculo de Chainlink a buscar hardcodeada
+    const priceConsumerV3 = await PriceConsumerV3.deploy(priceFeedAddress);
+    await priceConsumerV3.deployed();
+    console.log("PriceConsumerV3 deployed to:", priceConsumerV3.address);
+  
+
     
     // const ETHPriceFeed = await ethers.getContractFactory("ETHPriceFeed");
     // const ethPriceFeed = await ETHPriceFeed.deploy(
