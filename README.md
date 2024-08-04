@@ -39,9 +39,9 @@ TODO: Poner info de Chainlink
 TODO: Poner info de API3
 
 ## Verified Smart Contracts
-[ChallengeFactory]()
-[PathToken]()
-[PoolPrizeFactory]()
+[ChallengeFactory](https://sepolia.scrollscan.com/address/0x06Ec7986362De53Ab9DF64de9b20db22561634AE#code)
+[PathToken](https://sepolia.scrollscan.com/address/0x5ff5A1286BE4040419285C15DDC2f2DB8313bF8F#code)
+[PoolPrizeFactory](https://sepolia.scrollscan.com/address/0xe8B1361802F8caD3620F2f552b311Cb8f7529CfA#code)
 [PoolPrize]()
 
 ## Quickstart
