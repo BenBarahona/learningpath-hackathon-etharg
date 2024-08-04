@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import "./PathToken.sol";
+import "./../PathToken.sol";
 
 contract RewardConfig {
     PathToken public token;

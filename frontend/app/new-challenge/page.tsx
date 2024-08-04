@@ -1,28 +1,18 @@
 'use client'
 
-import { Box, Button, Flex, Heading, Text, VStack, Image,  Input, Textarea,  FormControl, FormLabel } from "@chakra-ui/react";
 import { useState } from "react";
 import { LayoutMain } from '../main-layout'
 import { Step1 } from "./step1";
 import { Step2 } from './step2'
 import { Step3 } from './step3'
 import { Step4 } from './step-4'
-
-
-interface FormData {
-  title: string;
-  description: string;
-  balance: number;
-  deadline: string;
-  questions: any[];
-}
-
+import { Step5 } from './step-5'
+import { setChallenge } from '@/src/services/challenges'
 
 const SelectChallengeType = () => {
   const [selectedChallenge, setSelectedChallenge] = useState<string>();
   const [step, setStep] = useState(0)
-  
-
+  const [rewards, setRewards] = useState(0)
   const [formData, setFormData] = useState<any>({
     title: '',
     description: '',
@@ -31,25 +21,27 @@ const SelectChallengeType = () => {
     questions: []
   });
   
-  /* const [currentQuestion, setCurrentQuestion] = useState<any>({
-    question: '',
-    answers: ['', '', '', ''],
-    correctAnswer: 0,
-  });  */
-  const [currentQuestion, setCurrentQuestion] = useState<any>([
-    /* { content: '', options: [{ option: '', isCorrect: false }] } */
-  ]); 
-/*   const [newQuestion, setNewQuestion] = useState<any>({
-    question: '',
-    answers: ['', '', '', ''],
-    correctAnswer: 0
-  });  */
+  const [currentQuestion, setCurrentQuestion] = useState<any>([]); 
+
+  const submitChallenge = async() => {
+    await setChallenge({
+      title: formData.title,
+      description: formData.description,
+      challengeType: selectedChallenge as string,
+      startTime: new Date(),
+      endTime: formData.deadline,
+    }, currentQuestion)
+
+    setStep(4)
+  }
+
 
   const steps = [
     <Step1 selectedChallenge={selectedChallenge} setSelectedChallenge={setSelectedChallenge} setStep={setStep} />,
     <Step2 formData={formData} setFormData={setFormData} setStep={setStep} selectedChallenge={selectedChallenge} />,
     <Step3 currentQuestion={currentQuestion} setCurrentQuestion={setCurrentQuestion}  setStep={setStep} />,
-    <Step4 />
+    <Step4 questionLength={currentQuestion.length} setReward={setRewards} reward={rewards} submitChallenge={submitChallenge} />,
+    <Step5 />
   ]
 
   return <LayoutMain>

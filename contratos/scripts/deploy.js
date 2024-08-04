@@ -3,12 +3,25 @@ const hre = require("hardhat");
 async function main() {
   try {
     const [deployer] = await ethers.getSigners();
-    const initialSupply = ethers.utils.parseUnits("1000000", 18); // 1 millón de tokennnnn???? jaja los que sean
     console.log("Deploying contracts with the account:", deployer.address);
 
+    //Deploying PATH token, with factory as a owner
     const PathToken = await ethers.getContractFactory("PathToken");
-    const pathToken = await PathToken.deploy(initialSupply);
+    const pathToken = await PathToken.deploy();
     console.log("PathToken deployed to:", pathToken.address);
+
+    //Deploy challenge factory
+    const ChallengeFactory = await ethers.getContractFactory("ChallengeFactory");
+    const challengeFactory = await ChallengeFactory.deploy(pathToken.address);
+    console.log("ChallengeFactory deployed to:", challengeFactory.address)
+
+    
+    // const ETHPriceFeed = await ethers.getContractFactory("ETHPriceFeed");
+    // const ethPriceFeed = await ETHPriceFeed.deploy(
+    //   "csdcsdcsd",  // dire de tu Airnode
+    //   "csdcdscsdcds",     // mi Endpoint ID
+    //   "csdcdsdscsd"   // dire de tu Sponsor Wallet
+    // );
     
   } catch (error) {
     console.error(error);
