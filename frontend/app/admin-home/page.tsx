@@ -3,15 +3,21 @@ import { Box, Flex, Text, VStack, HStack, Button, Icon, Avatar, Heading, Link } 
 import { useRouter } from "next/navigation";
 import { FaTrophy, FaGift, FaUser } from "react-icons/fa";
 import { HiHome } from "react-icons/hi";
-import { getChallengesByWallet } from '@/src/services'
+import { getChallengesByWallet, getEvent, getPrizes } from '@/src/services'
 import { useQuery } from '@tanstack/react-query'
-import { useAccount } from 'wagmi';
+import { useAccount, useChainId } from 'wagmi';
 
 const AdminHome = () => {
 
-    const { address } = useAccount()
-    const router = useRouter()
-    const query = useQuery({ queryKey: ['events'], queryFn: () => getChallengesByWallet(address as string) })
+  const { address } = useAccount()
+  const router = useRouter()
+  const chainId = useChainId();
+
+  const event = useQuery({ queryKey: ['events'], queryFn: () => getEvent(chainId?.toString()) })
+
+  const query = useQuery({ queryKey: ['events', event.data?.event_id], queryFn: () => getChallengesByWallet(event.data?.event_id), enabled: Boolean(event.data?.event_id) })
+
+  const queryPrize = useQuery({ queryKey: ['prize', event.data?.event_id], queryFn: () => getPrizes(event.data?.event_id), enabled: Boolean(event.data?.event_id) })
 
   return (
     <Flex direction="column" minH="100vh" bg="gray.50">
@@ -87,7 +93,7 @@ const AdminHome = () => {
                 <Button colorScheme="orange" size="sm" onClick={()=> router.push('/prize-pool')}>+ Create Prize</Button>
               </HStack>
               <HStack justifyContent="space-between">
-                <Text fontSize="3xl">0</Text>
+                <Text fontSize="3xl">{queryPrize.data?.length ?? 0}</Text>
                 <Text fontSize="3xl">0</Text>
               </HStack>
               <HStack justifyContent="space-between">
