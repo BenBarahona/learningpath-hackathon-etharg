@@ -22,6 +22,19 @@ Once authenticated, DevRels/Admins will be able to create challenges so users ca
 
 Regular users will be able to play these challenges that will consist on different types of modules, such as on chain Multiple Choice trivia, a voting scheme using MACI, and more.
 
+## Tech Stacks
+Frontend uses the following tech stacks:
+- [NextJS](https://nextjs.org/)
+- [Wagmi](https://wagmi.sh/)
+- [ReactQuery](https://github.com/TanStack/query#readme)
+- [ChakraUI](https://v2.chakra-ui.com/)
+- [Zupass](https://github.com/proofcarryingdata/zupass)
+- [Firebase](https://firebase.google.com/?gad_source=1&gclid=Cj0KCQjwzby1BhCQARIsAJ_0t5O__fYNyCoSykZQTNw-Df3atjA8nZaehHc_DvAH7GbSS-lquPHAy5caAva9EALw_wcB&gclsrc=aw.ds)
+
+Smart Contracts are built with:
+- Hardhat for contract deployment & contract verification
+  
+
 ## Implementation Details
 
 For Zupass Tickets, a Pipeline was created on [Zupass' PodBox](https://podbox.dev/#/pipelines/) for ticket issuance to DevRels / Admins that will create platform content.
@@ -33,10 +46,9 @@ The following smart contracts were created:
 - PoolPrize: A Pool funded by the deployer, which can have different types of reward logics.  At the moment, only a Pool Prize (set amount per claim) is available, but the idea is to include different types of Pools such as a Quadratic or Pre-Determined types.
 - API3PriceFeed: Oracle using API3 to consult current ETH value in USD
 - API3PriceFeedExtended: Extension of Price Feed above, serving as a conversion contract for other currencies, such as Argentinian Pesos.
-- PriceConsumerV3 (?)
+- PriceConsumerV3: Oracle using Chainlink to consult current ETH value in USD
 
-TODO: Poner info de Chainlink
-TODO: Poner info de API3
+Unfortunately the API3 and Chainlink cound not be used as we experienced problems when calling readDataFeed function calls.  For some reason the contract transaction got held up on confirmation.
 
 ## Verified Smart Contracts
 [ChallengeFactory](https://sepolia.scrollscan.com/address/0x06Ec7986362De53Ab9DF64de9b20db22561634AE#code)
