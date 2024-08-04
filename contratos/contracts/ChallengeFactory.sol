@@ -27,6 +27,11 @@ contract ChallengeFactory {
         pathToken = PathToken(_pathToken);
     }
 
+    function setPathToken(address _pathToken) {
+        require(msg.sender == owner, "NOT OWNER");
+        pathToken = _pathToken;
+    }
+
     function CreateMultipleChoiceChallenge(string memory firebaseId, uint256 tokenAmountRequired, uint256 totalReward, uint256 totalQuestions) public {
         
         bytes32 firebaseKey = keccak256(bytes(firebaseId));
@@ -69,5 +74,10 @@ contract ChallengeFactory {
     function getRequiredTokensForChallenge(string memory challengeId) public view returns (uint256 requiredTokens){
         bytes32 challengeKey = keccak256(bytes(challengeId));
         return challenges[challengeKey].tokenAmountRequired;
+    }
+
+    function getTotalQuestionsForChallenge(string memory challengeId) public view returns (uint256 totalReward){
+        bytes32 challengeKey = keccak256(bytes(challengeId));
+        return challenges[challengeKey].totalQuestions;
     }
 }

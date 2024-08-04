@@ -35,6 +35,11 @@ contract PoolPrize {
         _;
     }
 
+    function setPathToken(address _pathToken) {
+        require(msg.sender == admin, "NOT OWNER");
+        pathToken = _pathToken;
+    }
+
     receive() external payable {
         totalClaimableUsers = msg.value / prizePerUser;
         emit Received(msg.sender, msg.value);
