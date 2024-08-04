@@ -21,7 +21,6 @@ import {
    const q = query(collection(db, "challenge"), where("creator", "==", creator));
    const snapshot = await getDocs(q);
    const challenges = snapshot?.docs?.map((item) => ({id: item.id, ...item.data()}))
-   console.log(challenges, 'challenges')
    return challenges
 }
 
@@ -53,4 +52,5 @@ import {
         });
     })
     await batch.commit();
+    return docRef.id
  }
