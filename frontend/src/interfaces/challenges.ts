@@ -4,7 +4,7 @@ export interface IChallenge {
     readonly endTime: Date
     readonly startTime: Date
     readonly title: string
-    readonly balance: number
+    // readonly balance: number
 }
 
 /* title: '',
