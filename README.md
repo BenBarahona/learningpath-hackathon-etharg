@@ -160,4 +160,5 @@ Pitch Decks:
 
 ## Video Demo
 
-[Watch the video]()
+[Watch the video](https://www.loom.com/share/773c164e0e174d22a70ee61513680592?sid=1d9c17ec-0cf2-41b7-a771-0098443c0ac7)
+[Pitch Video](https://www.loom.com/share/469c76dead0342e4ac864abec97ac7f8?sid=b666cbb3-ca2a-44a4-9e4a-5be12494111f)
