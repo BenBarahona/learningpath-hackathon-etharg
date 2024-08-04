@@ -6,6 +6,7 @@ import {
     addDoc,
     getDocs,
     setDoc,
+    updateDoc,
     doc,
     query,
     where,
@@ -42,5 +43,6 @@ export {
     signInWithEmailAndPassword,
     query,
     where,
-    writeBatch
+    writeBatch,
+    updateDoc
   };

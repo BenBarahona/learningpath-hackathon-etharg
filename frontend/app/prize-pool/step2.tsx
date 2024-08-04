@@ -2,7 +2,7 @@
 
 import { Box, Button, Text, VStack, Input, Textarea,  FormControl, FormLabel } from "@chakra-ui/react";
 
-export const Step2 = ({ formData, setFormData, submitChallenge}: any) => {
+export const Step2 = ({ formData, setFormData, submitChallenge, isWriting}: any) => {
  
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -50,6 +50,16 @@ export const Step2 = ({ formData, setFormData, submitChallenge}: any) => {
             />
           </FormControl>
           <FormControl>
+            <FormLabel className="font-semibold">$PATH Required to Burn</FormLabel>
+            <Input
+              name="PriceBurn"
+              type="number"
+              placeholder="0 ETH"
+              defaultValue={formData.PriceBurn}
+              onChange={handleInputChange}
+            />
+          </FormControl>
+          <FormControl>
             <FormLabel className="font-semibold">Prize per User</FormLabel>
             <Input
               name="prizeUser"
@@ -74,7 +84,7 @@ export const Step2 = ({ formData, setFormData, submitChallenge}: any) => {
             />
           </FormControl>
           <FormControl>
-            <FormLabel className="font-semibold">Minimum Amount of Historic $PATH Balance to Claim</FormLabel>
+            <FormLabel className="font-semibold">Minimum XP Required to Claim</FormLabel>
             <Input
               name="minimumClaim"
               type="number"
@@ -83,7 +93,7 @@ export const Step2 = ({ formData, setFormData, submitChallenge}: any) => {
               onChange={handleInputChange}
             />
           </FormControl>
-          <Button className="w-full" colorScheme="orange" onClick={submitChallenge}>Continue</Button>
+          <Button className="w-full" colorScheme="orange" isLoading={isWriting} onClick={submitChallenge}>Continue</Button>
         </VStack>
       </Box>
     );

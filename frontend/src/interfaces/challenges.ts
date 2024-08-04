@@ -4,12 +4,9 @@ export interface IChallenge {
     readonly endTime: Date
     readonly startTime: Date
     readonly title: string
-    // readonly balance: number
+    readonly creator: string
 }
 
-/* title: '',
-description: '',=
-deadline: '', */
 
 export interface IOption {
     readonly option: string
@@ -29,4 +26,5 @@ export interface IPrize {
     readonly required_token_amount: number
     readonly total_prize: number
     readonly claimed_address: string[]
+    readonly creator: string
 }

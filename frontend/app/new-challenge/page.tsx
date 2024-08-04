@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useMemo, useEffect } from "react";
-import { useWriteContract, useWaitForTransactionReceipt } from "wagmi";
+import { useWriteContract, useWaitForTransactionReceipt, useChainId } from "wagmi";
 import { LayoutMain } from '../main-layout'
 import { Step1 } from "./step1";
 import { Step2 } from './step2'
@@ -10,8 +10,14 @@ import { Step4 } from './step-4'
 import { Step5 } from './step-5'
 import { setChallenge } from '@/src/services/challenges'
 import { challengeAbi, challengeAddress} from '@/src/contract-abi/challenge'
+import { getEvent } from '@/src/services'
+import { useQuery } from '@tanstack/react-query'
 
 const SelectChallengeType = () => {
+
+  const chainId = useChainId();
+
+  const query = useQuery({ queryKey: ['events'], queryFn: () => getEvent(chainId?.toString()) })
   const [selectedChallenge, setSelectedChallenge] = useState<string>();
   const [step, setStep] = useState(0)
   const [loading, setLoading] = useState(false)
@@ -25,6 +31,7 @@ const SelectChallengeType = () => {
   });
   const [currentQuestion, setCurrentQuestion] = useState<any>([]); 
   const { data: hash, error, isPending, writeContract } = useWriteContract();
+  
   const { isLoading } = useWaitForTransactionReceipt({
     hash,
   });
@@ -41,6 +48,7 @@ const SelectChallengeType = () => {
       challengeType: selectedChallenge as string,
       startTime: new Date(),
       endTime: formData.deadline,
+      creator: query?.data?.event_id
     }, currentQuestion)
     
     writeContract({
@@ -53,12 +61,12 @@ const SelectChallengeType = () => {
    
   }
 
+
   useEffect(() => {
     if (!isWriting && hash) {
       setStep(4)
     }
   }, [isWriting, hash])
-
 
   const steps = [
     <Step1 selectedChallenge={selectedChallenge} setSelectedChallenge={setSelectedChallenge} setStep={setStep} />,
