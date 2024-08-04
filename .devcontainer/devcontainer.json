@@ -1,5 +1,5 @@
 {
-  "name": "Damn Vulnerable DeFi Devcontainer",
+  "name": "LearningPath - EthArgentina",
 
   "build": {
     "dockerfile": "Dockerfile"
