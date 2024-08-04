@@ -28,7 +28,7 @@ export const Step1 = ({selectedChallenge,  setSelectedChallenge, setStep}: any) 
     <Heading size="md" mb={4}>1. Select Challenge Type</Heading>
     <Flex justifyContent="space-between" gap={4} mb={8}>
       <ChallengeCard
-        imageSrc="https://path-to-multiple-choice-image.png"
+        imageSrc="/images/multiple_choice.png"
         title="Multiple-Choice"
         description="Answer questions by selecting the correct option. Gain points for each correct answer and advance in your learning journey."
         players="Single Player"
@@ -37,7 +37,7 @@ export const Step1 = ({selectedChallenge,  setSelectedChallenge, setStep}: any) 
         onClick={() => setSelectedChallenge(challengeType.MultipleChoice)}
       />
       <ChallengeCard
-        imageSrc="https://path-to-oracle-mode-image.png"
+        imageSrc="/images/oracle_mode.png"
         title="Oracle Mode"
         description="Answer real-time questions validated by the API3 Oracle. Compete with others and see if your answer is the most accurate."
         players="Multiplayer"
@@ -46,7 +46,7 @@ export const Step1 = ({selectedChallenge,  setSelectedChallenge, setStep}: any) 
         onClick={() => setSelectedChallenge(challengeType.OracleMode)}
       />
       <ChallengeCard
-        imageSrc="https://path-to-real-time-challenge-image.png"
+        imageSrc="/images/real_time.png"
         title="Real Time Challenge"
         description="Bet on your answers in a timed challenge. Pool prizes are distributed among players with the correct answers."
         players="Multiplayer"
