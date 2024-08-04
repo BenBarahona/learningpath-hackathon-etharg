@@ -53,18 +53,7 @@ const AttemptPage = () => {
     };
 
     const handleSubmitQuest = () => {
-      console.log(
-        {
-          abi: challengeAbi,
-          address: challengeAddress as `0x${string}`,
-          functionName: 'userCompletedChallenge',
-          args: [
-            address,
-            searchParams.get('challenge'),
-            correct
-          ],
-        }, 'userCompletedChallenge'
-      )
+
       writeContract({
         abi: challengeAbi,
         address: challengeAddress as `0x${string}`,
