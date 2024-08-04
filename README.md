@@ -106,6 +106,58 @@ npm run deploy:network
 Network sent must be configured in hardhat.config.js file on contracts folder
 
 
+## Product Design
+
+Design System:
+
+[Design System](https://www.figma.com/design/4Rg80bsDQazHn8cIOsDTZI/Learning-Path---ETH-Argentina-Hackathon?node-id=0-1)
+
+---
+
+Userflows:
+
+[Figjam with Userflows](https://www.figma.com/board/dPwrivH2zdyAk70P2LwChe/Learning-Path---ETH-Argentina-Hackathon?node-id=0-1&t=jIJk3FrLNIz128sr-1)
+
+---
+
+UI Design:
+
+[Admin Onboarding UI](https://www.figma.com/design/4Rg80bsDQazHn8cIOsDTZI/Learning-Path---ETH-Argentina-Hackathon?node-id=139-13339&t=sTGRPpwn1WesAV2o-11)
+
+[Admin Multiple-Choice Challenge Setup](https://www.figma.com/design/4Rg80bsDQazHn8cIOsDTZI/Learning-Path---ETH-Argentina-Hackathon?node-id=56-8882&t=sTGRPpwn1WesAV2o-11)
+
+[Admin Pool Prize Setup UI](https://www.figma.com/design/4Rg80bsDQazHn8cIOsDTZI/Learning-Path---ETH-Argentina-Hackathon?node-id=77-1734&t=sTGRPpwn1WesAV2o-11)
+
+[Player Onboarding UI](https://www.figma.com/design/4Rg80bsDQazHn8cIOsDTZI/Learning-Path---ETH-Argentina-Hackathon?node-id=77-1760&t=sTGRPpwn1WesAV2o-11)
+
+[Player Multiple-Choice Game UI](https://www.figma.com/design/4Rg80bsDQazHn8cIOsDTZI/Learning-Path---ETH-Argentina-Hackathon?node-id=86-9032&t=sTGRPpwn1WesAV2o-11)
+
+[Player Prize Pool Claiming UI](https://www.figma.com/design/4Rg80bsDQazHn8cIOsDTZI/Learning-Path---ETH-Argentina-Hackathon?node-id=86-9928&t=sTGRPpwn1WesAV2o-11)
+
+---
+
+Prototypes:
+
+[Admin Onboarding Prototype](https://www.figma.com/proto/4Rg80bsDQazHn8cIOsDTZI/Learning-Path---ETH-Argentina-Hackathon?page-id=135%3A10052&node-id=135-10185&viewport=591%2C104%2C0.07&t=G7tq3RTPdCKVvHbk-9&scaling=scale-down&content-scaling=fixed&starting-point-node-id=135%3A10185&show-proto-sidebar=1)
+
+[Admin Create Multiple-Choice Challenge Prototype](https://www.figma.com/proto/4Rg80bsDQazHn8cIOsDTZI/Learning-Path---ETH-Argentina-Hackathon?page-id=135%3A10052&node-id=135-10211&viewport=591%2C104%2C0.07&t=G7tq3RTPdCKVvHbk-9&scaling=scale-down&content-scaling=fixed&starting-point-node-id=135%3A10211&show-proto-sidebar=1)
+
+[Admin Create Prize Pool Prototype](https://www.figma.com/proto/4Rg80bsDQazHn8cIOsDTZI/Learning-Path---ETH-Argentina-Hackathon?page-id=135%3A10052&node-id=135-11635&viewport=591%2C104%2C0.07&t=G7tq3RTPdCKVvHbk-9&scaling=scale-down&content-scaling=fixed&starting-point-node-id=135%3A11635&show-proto-sidebar=1)
+
+[Player Onboarding Prototype](https://www.figma.com/proto/4Rg80bsDQazHn8cIOsDTZI/Learning-Path---ETH-Argentina-Hackathon?page-id=139%3A13557&node-id=139-15936&viewport=693%2C107%2C0.07&t=vFTWZEjIcuiwdl2P-9&scaling=scale-down&content-scaling=fixed&starting-point-node-id=139%3A15936&show-proto-sidebar=1)
+
+[Player Multiple-Choice Game Prototype](https://www.figma.com/proto/4Rg80bsDQazHn8cIOsDTZI/Learning-Path---ETH-Argentina-Hackathon?page-id=139%3A13557&node-id=139-16268&viewport=693%2C107%2C0.07&t=vFTWZEjIcuiwdl2P-9&scaling=scale-down&content-scaling=fixed&starting-point-node-id=139%3A16268&show-proto-sidebar=1)
+
+[Player Claim Pool Prize Prototype](https://www.figma.com/proto/4Rg80bsDQazHn8cIOsDTZI/Learning-Path---ETH-Argentina-Hackathon?page-id=139%3A13557&node-id=139-17364&viewport=693%2C107%2C0.07&t=vFTWZEjIcuiwdl2P-9&scaling=scale-down&content-scaling=fixed&starting-point-node-id=139%3A17364&show-proto-sidebar=1)
+
+---
+
+Pitch Decks:
+
+[Pitch Deck Spanish](https://www.figma.com/deck/e5BSYu9Le4UWf2IvRp9gvL/ETH-Argentina-2024-Pitch---ES?node-id=1-32&viewport=-1452%2C-491%2C0.39&t=aRCiA0Zb8CW5za7G-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1)
+
+[Pitch Deck English](https://www.figma.com/deck/3kWz9gn6qCPkW8BV86EBtW/ETH-Argentina-2024-Pitch---EN?node-id=1-32&viewport=232%2C19%2C0.41&t=u7aUFjsanm6VDbZy-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1)
+
 ## Video Demo
 
 [Watch the video]()
