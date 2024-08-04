@@ -22,8 +22,6 @@ export const ChallengeCard = ({ creator_address, description, quest_type, title,
     }
   });
 
-  console.log(data, 'data')
-
     return (
       <Box
         maxW="sm"
@@ -44,7 +42,7 @@ export const ChallengeCard = ({ creator_address, description, quest_type, title,
         <Text fontSize="sm" color="gray.500" mb="4">
           Quest Type: {quest_type}
         </Text>
-        {Number(data) >= Number(pathsRequired)
+        {Number(data) <= Number(pathsRequired)
            && <Link href={`attempt?challenge=${id}`}>
            <Button colorScheme="teal" size="sm">
              View Challenge

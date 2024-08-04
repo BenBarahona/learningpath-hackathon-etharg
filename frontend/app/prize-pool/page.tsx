@@ -41,7 +41,6 @@ const SelectChallengeType = () => {
 
   const {
     data,
-    isFetching,
     refetch
   } = useReadContract({
     address: FactoryAddress as `0x${string}`,
@@ -77,7 +76,7 @@ const SelectChallengeType = () => {
         '0x7019Ddf4A14Caaf33babef107908F80E3EBd123F',
         prizeId,
         Number(formData.minimumClaim),
-        Number(formData.prizeUser),
+        parseEther(formData.prizeUser),
         Number(formData.PriceBurn)
        ],
        value: parseEther(formData.totalPrizePool)
