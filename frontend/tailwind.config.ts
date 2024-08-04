@@ -1,5 +1,32 @@
 import type { Config } from "tailwindcss";
 
+import { extendTheme } from "@chakra-ui/react";
+
+const theme = extendTheme({
+  components: {
+    Accordion: {
+      baseStyle: {
+        container: {
+          borderTopWidth: "0px",
+          _last: {
+            borderBottomWidth: "0px",
+          },
+        },
+        button: {
+          _hover: {
+            bg: "blue.500",
+            color: "white",
+          },
+          _expanded: {
+            bg: "blue.500",
+            color: "white",
+          },
+        },
+      },
+    },
+  },
+});
+
 const config: Config = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
