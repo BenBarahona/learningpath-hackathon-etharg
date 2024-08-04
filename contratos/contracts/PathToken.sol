@@ -9,9 +9,6 @@ contract PathToken is ERC20, Ownable(msg.sender) {
     mapping (address => uint256) private historicalTokens;
 
     constructor() ERC20("PathToken", "PATH") {
-        // for (uint256 i = 0; i < _owners.length; ++i) {
-        //     owners[_owners[i]] = _owners[i];
-        // }
     }
 
     function addOwner(address _owner) public {
