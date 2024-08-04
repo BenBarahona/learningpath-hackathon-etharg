@@ -1,7 +1,29 @@
 import Link from 'next/link';
 import { Box, Text, Button } from '@chakra-ui/react';
+import { useReadContract, useChainId } from 'wagmi'
+import { challengeAbi, challengeAddress} from '@/src/contract-abi/challenge'
+import { useQuery } from '@tanstack/react-query'
+import { getEvent } from '@/src/services'
 
-export const ChallengeCard = ({ creator_address, description, quest_type, title, id }: any) => {
+export const ChallengeCard = ({ creator_address, description, quest_type, title, id, pathsRequired }: any) => {
+
+  const chainId = useChainId();
+  const query = useQuery({ queryKey: ['events'], queryFn: () => getEvent(chainId?.toString()) })
+
+  const {
+    data
+  } = useReadContract({
+    address: challengeAddress as `0x${string}`,
+    abi: challengeAbi,
+    functionName: "getRequiredTokensForChallenge",
+    args: [id],
+    query: {
+      enabled: Boolean(id)
+    }
+  });
+
+  console.log(data, 'data')
+
     return (
       <Box
         maxW="sm"
@@ -22,11 +44,14 @@ export const ChallengeCard = ({ creator_address, description, quest_type, title,
         <Text fontSize="sm" color="gray.500" mb="4">
           Quest Type: {quest_type}
         </Text>
-        <Link href={`attempt?challenge=${id}`}>
-          <Button colorScheme="teal" size="sm">
-            View Challenge
-          </Button>
-        </Link>
+        {Number(data) >= Number(pathsRequired)
+           && <Link href={`attempt?challenge=${id}`}>
+           <Button colorScheme="teal" size="sm">
+             View Challenge
+           </Button>
+         </Link>
+        }
+        
       </Box>
     );
   };

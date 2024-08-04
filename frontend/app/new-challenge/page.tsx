@@ -18,6 +18,7 @@ const SelectChallengeType = () => {
   const chainId = useChainId();
 
   const query = useQuery({ queryKey: ['events'], queryFn: () => getEvent(chainId?.toString()) })
+  console.log(query, 'event')
   const [selectedChallenge, setSelectedChallenge] = useState<string>();
   const [step, setStep] = useState(0)
   const [loading, setLoading] = useState(false)

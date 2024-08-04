@@ -1,0 +1,1 @@
+export const pathAddress = '0x7019Ddf4A14Caaf33babef107908F80E3EBd123F'

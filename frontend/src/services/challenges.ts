@@ -38,7 +38,8 @@ import {
         description: challenge.description,
         endTime: challenge.endTime,
         startTime: challenge.startTime,
-        title: challenge.title
+        title: challenge.title,
+        creator: challenge.creator
       });
       
     const batch = writeBatch(db);
