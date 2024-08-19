@@ -1,5 +1,7 @@
 # Learning Path : Eth Argentina 2024
 
+[Taikai Page](https://taikai.network/ethargentina/hackathons/level-up-argentina-2024/projects/clz8lqg7n0b7dw001zlarp7ew/idea)
+
 Learning Path is a gamified learning platform designed to address the challenge of identifying and rewarding builders for their contributions in blockchain protocols. It leverages blockchain technology to provide transparent, immutable records of user achievements and quest metrics, ensuring open and verifiable progress tracking. 
 
 The platform incentivizes users to learn about blockchain technologies through interactive challenges, including multiple-choice quizzes, real-time oracle-validated responses, and timed competitions.
